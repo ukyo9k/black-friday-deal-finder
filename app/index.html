@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DealHound — Black Friday 2026 deal finder</title>
+<meta name="description" content="Real Black Friday and Cyber Monday 2026 deals, each price-checked at its store, with an honest verdict on whether it is really a deal.">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Black Friday 27 Nov · Cyber Monday 30 Nov 2026</p>
+    <h1>DealHound <em>sniffs out the real bargains.</em></h1>
+    <p>Every deal below was price-checked at its store between 12 and 26 November 2026. Each card shows the sale price, the usual price, the discount — and an honest verdict: a true new low, a strong price, or a routine sale that is not worth rushing for.</p>
+    <div class="stats">
+      <div class="stat"><b id="stat-deals">–</b><span>Deals checked</span></div>
+      <div class="stat"><b id="stat-newlow">–</b><span>New lows</span></div>
+      <div class="stat"><b id="stat-save">–</b><span>Total you could save</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="controls-inner">
+    <div class="search-row">
+      <input type="search" id="search" placeholder="Search deals — try “AirPods”, “OLED”, “vacuum”…" aria-label="Search deals">
+      <select id="store" aria-label="Filter by store"></select>
+      <select id="sort" aria-label="Sort deals"></select>
+    </div>
+    <div class="chips" id="category" role="group" aria-label="Filter by category"></div>
+    <div class="filter-row">
+      <fieldset>
+        <legend>Min. discount</legend>
+        <label><input type="radio" name="mindisc" value="0" checked> Any</label>
+        <label><input type="radio" name="mindisc" value="25"> 25%+</label>
+        <label><input type="radio" name="mindisc" value="40"> 40%+</label>
+        <label><input type="radio" name="mindisc" value="50"> 50%+</label>
+      </fieldset>
+      <fieldset>
+        <legend>Verdict</legend>
+        <label><input type="radio" name="verdict" value="all" checked> All</label>
+        <label><input type="radio" name="verdict" value="new-low"> New lows</label>
+        <label><input type="radio" name="verdict" value="strong"> Strong prices</label>
+        <label><input type="radio" name="verdict" value="routine"> Routine sales</label>
+      </fieldset>
+      <button type="button" class="clear-btn" id="clear">Clear filters</button>
+    </div>
+  </div>
+</div>
+
+<main>
+  <p id="count" aria-live="polite"></p>
+  <div class="grid" id="grid"></div>
+
+  <section class="howto">
+    <h2>How to read a DealHound verdict</h2>
+    <ul>
+      <li><span class="key verdict-new-low">New low</span> — the lowest price ever recorded for this product. Buy now if you want it.</li>
+      <li><span class="key verdict-strong">Strong price</span> — a real cut, at or near the year's best. Worth buying.</li>
+      <li><span class="key verdict-routine">Routine sale</span> — a small cut, or a price from an earlier sale wave. Check it again before you buy.</li>
+    </ul>
+    <p>Tap any card for the evidence behind its verdict, where else it is sold, and the exact source and date the price was read. “View at store” opens the store's own search for that product — the store page is the final word on the price.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="inner">
+    <p id="checked-note"></p>
+    <p>DealHound is an independent deal finder built for Black Friday 2026. It is not affiliated with Amazon, Best Buy, Walmart, Dyson, or any brand listed. “View at store” links go to the store's own product search. Prices change during the sale — always confirm at checkout.</p>
+  </div>
+</footer>
+
+<div class="detail" id="detail" hidden>
+  <div class="detail-backdrop" id="detail-backdrop"></div>
+  <div class="detail-panel" role="dialog" aria-modal="true">
+    <button type="button" class="detail-close" id="detail-close" aria-label="Close">×</button>
+    <div id="detail-body"></div>
+  </div>
+</div>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
